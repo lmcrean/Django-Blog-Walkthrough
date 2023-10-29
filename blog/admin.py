@@ -1,4 +1,4 @@
 from django.contrib import admin
-import .models import Post
+from .models import Post
 
 admin.site.register(Post)
