@@ -10,17 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 import os
-import dj_database_url
+from pathlib import Path
 
+import dj_database_url
 if os.path.isfile("env.py"):
    import env
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parenton3 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +33,7 @@ SECRET_KEY = 'django-insecure-08l4_c3jyu(7!ou(9&)cbbc$a%-tt*)h(j(p&_#k^(%ww4nmun
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lmcrean-blog-392c368ed30a.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['lmcrean-blog-392c368ed30a.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
