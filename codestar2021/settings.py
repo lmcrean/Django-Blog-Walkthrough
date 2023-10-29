@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-08l4_c3jyu(7!ou(9&)cbbc$a%-tt*)h(j(p&_#k^(%ww4nmun
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["lmcrean-blog-392c368ed30a.herokuapp.com/"]
+ALLOWED_HOSTS = ['lmcrean-blog-392c368ed30a.herokuapp.com']
 
 
 # Application definition
