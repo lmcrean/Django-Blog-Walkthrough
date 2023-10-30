@@ -41,6 +41,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['lmcrean-blog-392c368ed30a.herokuapp.com', 'localhost', '127.0.0.1']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
@@ -50,12 +51,30 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     'blog',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-info',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+    }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,7 +86,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'codestar2021.urls'
+ROOT_URLCONF = 'codestar.urls'
 
 TEMPLATES = [
     {
@@ -85,7 +104,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'codestar2021.wsgi.application'
+WSGI_APPLICATION = 'codestar.wsgi.application'
 
 
 # Database
@@ -99,7 +118,7 @@ WSGI_APPLICATION = 'codestar2021.wsgi.application'
 # }
 
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
@@ -139,15 +158,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
