@@ -38,7 +38,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-08l4_c3jyu(7!ou(9&)cbbc$a%-tt*)h(j(p&_#k^(%ww4nmun'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['lmcrean-blog-392c368ed30a.herokuapp.com', 'localhost', '127.0.0.1']
 
