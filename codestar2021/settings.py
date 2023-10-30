@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import dj_database_url
+from django.urls import URLPattern
 if os.path.isfile("env.py"):
     import env
 
@@ -21,7 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    URLPattern += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -77,6 +78,7 @@ MESSAGE_TAGS = {
     }
 
 MIDDLEWARE = [
+    'allauth.account.middleware.AccountMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
